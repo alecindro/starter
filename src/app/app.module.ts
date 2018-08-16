@@ -10,6 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FeedPageModule } from '../pages/feed/feed.module';
+import { CheckinPageModule } from '../pages/checkin/checkin.module';
+
+import { PacienteService } from '../services/paciente_services'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    FeedPageModule,
+    CheckinPageModule,
     IonicModule.forRoot(MyApp)
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    PacienteService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
