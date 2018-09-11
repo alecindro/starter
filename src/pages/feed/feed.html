@@ -1,55 +1,51 @@
-<!--
-  Generated template for the FeedPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Feed</ion-title>
-  </ion-navbar>
-
+ 
+  <ion-toolbar color="primary">
+      <ion-buttons start>
+      <ion-item style="background-color: transparent;border: none">
+          <ion-avatar item-start>
+            <img [src]="pacienteDTO.photo">            
+          </ion-avatar>
+          {{pacienteDTO.paciente.apelido || pacienteDTO.paciente.nome}}
+        </ion-item>
+      </ion-buttons>
+<ion-title>Eventos</ion-title>
+          <ion-buttons end>
+              <button ion-button icon-only color="light" (click)="goHome()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+            </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="paciente.photo">
-      </ion-avatar>
-      <h2>{{paciente.nome}}</h2>
-      <p>{{paciente.id}}</p>
-    </ion-item>
-
-    <img src="img/advance-card-bttf.png">
-
-    <ion-card-content>
-      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
-        Whoa. This is heavy.</p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          11h ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+  <ion-fab middle right>
+    <button ion-fab mini (click)="addEvento()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+        <ion-item-sliding *ngFor="let eventopaciente of eventopacientes">
+        <ion-item>
+          <ion-icon [name]="eventopaciente.icon" item-start></ion-icon>
+          <h2>{{eventopaciente.evento}}</h2>
+          <p *ngFor="let detalhe of eventopaciente.detalhes">
+          {{detalhe}}
+          </p>
+        
+          <p>Cuidador: {{eventopaciente.cuidador}}</p>
+          <ion-note item-end><p>{{eventopaciente.data}}</p><p>{{eventopaciente.hora}}</p></ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-button color="secondary">
+              <ion-icon name="eye"></ion-icon>
+              Editar
+            </button>
+            <button ion-button color="danger">
+              <ion-icon name="trash"></ion-icon>
+              Excluir
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 </ion-content>

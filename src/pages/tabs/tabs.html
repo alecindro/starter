@@ -1,6 +1,6 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Pacientes" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Feed" tabIcon="paper"></ion-tab>
+<ion-tabs tabsPlacement="top">
+  <ion-tab [root]="tabEventos" [rootParams]="tabParams" tabTitle="Eventos" tabIcon="body" ></ion-tab>
+  <ion-tab [root]="tabAgenda" [rootParams]="tabParams" tabTitle="Agenda" tabIcon="book"></ion-tab>
+  <ion-tab [root]="tabAnotacao" [rootParams]="tabParams" tabTitle="Anotações" tabIcon="paper"></ion-tab>
+  <ion-tab [root]="tabPhoto" [rootParams]="tabParams" tabTitle="Fotos" tabIcon="images"></ion-tab>
 </ion-tabs>

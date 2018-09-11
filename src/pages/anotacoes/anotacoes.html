@@ -1,0 +1,32 @@
+<ion-header>
+ 
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+        <ion-item style="background-color: transparent;border: none">
+            <ion-avatar item-start>
+              <img [src]="pacienteDTO.photo">            
+            </ion-avatar>
+            {{pacienteDTO.paciente.apelido || pacienteDTO.paciente.nome}}
+          </ion-item>
+        </ion-buttons>
+  <ion-title>Anotações</ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only color="light" (click)="goHome()">
+                  <ion-icon name="arrow-back"></ion-icon>
+                </button>
+              </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-textarea rows="2" class="anottext-input" placeholder="Digite anotações diárias" autocomplete="on" maxLength="500" item-content></ion-textarea>
+          <button item-end color="primary" ion-button>
+              Salvar
+            </button>
+        </ion-item>
+       
+        </ion-list>
+</ion-content>
